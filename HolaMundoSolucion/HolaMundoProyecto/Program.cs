@@ -11,5 +11,8 @@
         Console.WriteLine(@"| (_| (_) | (_| (_| |_____| (_| (_) | | (_| |");
         Console.WriteLine(@" \___\___/ \___\__,_|      \___\___/|_|\__,_|");
         Console.WriteLine(@"  soft drink - coke - The Coca-Cola Company");
+
+
+        var Nombre = Console.ReadLine();
     }
 }
