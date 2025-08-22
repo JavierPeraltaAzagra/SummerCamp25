@@ -1,0 +1,14 @@
+<h2 class="mb-4 text-center">Detalle del Grupo de Música</h2>
+<div *ngIf="grupo" class="card shadow-sm mx-auto" style="max-width: 480px;">
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item"><strong>ID:</strong> {{ grupo.id }}</li>
+		<li class="list-group-item"><strong>Nombre:</strong> {{ grupo.nombre }}</li>
+		<li class="list-group-item"><strong>Género:</strong> {{ grupo.genero }}</li>
+		<li class="list-group-item"><strong>Número de integrantes:</strong> {{ grupo.numeroIntegrantes }}</li>
+		<li class="list-group-item"><strong>Fecha de formación:</strong> {{ grupo.fechaFormacion | date:'dd/MM/yyyy' }}</li>
+		<li class="list-group-item"><strong>¿Está activo?</strong> {{ grupo.activo ? 'Sí' : 'No' }}</li>
+	</ul>
+	<div class="card-body text-center">
+		<a routerLink="/" class="btn btn-primary mt-2">Volver a la lista</a>
+	</div>
+</div>

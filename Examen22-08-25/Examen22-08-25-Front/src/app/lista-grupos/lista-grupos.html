@@ -1,0 +1,41 @@
+
+<div class="mb-3 d-flex flex-wrap gap-2 align-items-center mt-4 justify-content-center">
+    <input [(ngModel)]="nombre" class="form-control w-auto" placeholder="Filtrar por nombre" />
+    <input [(ngModel)]="genero" class="form-control w-auto" placeholder="Filtrar por género" />
+    <button (click)="buscar()" class="btn btn-primary">Buscar</button>
+    <button (click)="resetFiltros()" type="button" class="btn btn-secondary">Resetear filtros</button>
+</div>
+
+<div class="table-responsive mx-auto" style="max-width: 900px;">
+    <table class="table table-bordered align-middle mb-0">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Género</th>
+                <th>Número de integrantes</th>
+                <th>Fecha de formación</th>
+                <th>¿Está activo?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let grupo of gruposMusica" (click)="irADetalleGrupo(grupo)" class="table-row-clickable">
+                <td>{{ grupo.id }}</td>
+                <td>{{ grupo.nombre }}</td>
+                <td>{{ grupo.genero }}</td>
+                <td>{{ grupo.numeroIntegrantes }}</td>
+                <td>{{ grupo.fechaFormacion | date:'dd/MM/yyyy' }}</td>
+                <td>{{ grupo.activo ? 'Sí' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex align-items-center gap-2 my-3 flex-wrap justify-content-center">
+    <button (click)="irPrimeraPagina()" [disabled]="paginaActual === 1" class="btn btn-outline-primary btn-sm">Primera</button>
+    <button (click)="paginaAnterior()" [disabled]="paginaActual === 1" class="btn btn-outline-primary btn-sm">Anterior</button>
+    <span class="mx-2">Página {{ paginaActual }} de {{ totalPaginas }}</span>
+    <button (click)="paginaSiguiente()" [disabled]="(paginaActual * tamanoPagina) >= totalRegistros" class="btn btn-outline-primary btn-sm">Siguiente</button>
+    <button (click)="irUltimaPagina()" [disabled]="paginaActual === totalPaginas" class="btn btn-outline-primary btn-sm">Última</button>
+</div>
+<div *ngIf="totalRegistros > 0" class="mt-2 text-center">Total de registros: {{ totalRegistros }}</div>

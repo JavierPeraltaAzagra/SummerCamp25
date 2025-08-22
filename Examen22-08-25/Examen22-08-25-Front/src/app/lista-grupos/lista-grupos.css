@@ -1,0 +1,8 @@
+/* Hace la fila de la tabla clickeable y con efecto hover más visible y compatible con Bootstrap */
+table.table tr.table-row-clickable {
+	cursor: pointer !important;
+	transition: background 0.15s;
+}
+table.table tr.table-row-clickable:hover td {
+	background-color: #b6d4fe !important;
+}

@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { ListaGrupos } from './lista-grupos/lista-grupos';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { DetallesGrupos } from './detalles-grupos/detalles-grupos';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    ListaGrupos,
+    DetallesGrupos
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
